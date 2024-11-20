@@ -79,7 +79,7 @@ const Screen = () => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>WKND: {title}</title>
+        <title>Under Armour® Official Store</title>
       </Helmet>
       {data && data.screen &&
         <div className='screen' {...editorProps(data.screen.body, `${title} Screen`, '', 'reference')} >
