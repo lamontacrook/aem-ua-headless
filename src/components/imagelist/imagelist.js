@@ -46,7 +46,6 @@ const ImageList = ({ content, config }) => {
   const listRef = useRef(document.body); // Ref for HTML Element
 
   listRef.current.addEventListener('aue:content-patch', (event) => {
-    console.log(event);
     if (event.detail) {
       const { name, value } = event.detail.patch;
       const section = event.target.querySelector('section');
@@ -108,7 +107,7 @@ const ImageList = ({ content, config }) => {
       <section className={`${content.style} list-container`}>
         {mapJsonRichText(content.headline.json)}
         {/* {title && <h4>{title.join('')}</h4>} */}
-        <i className='arrow left' onClick={e => scrollLeft(e, 300)}></i>
+        {/* <i className='arrow left' onClick={e => scrollLeft(e, 300)}></i> */}
         <div className='list' id='list-container-body' onScroll={e => containerChange(e)} >
           {content && content.listItems.map((item, i) => {
             if (item['__typename'] === 'AdventureModel') return <AdventureCard key={i} item={item} style={content.style} config={config} />;
@@ -116,7 +115,7 @@ const ImageList = ({ content, config }) => {
             else if (item['__typename'] === 'AuthorModel') return <AuthorCard key={i} style={content.style} item={item} />;
           })}
         </div>
-        <i className='arrow right' onClick={e => scrollRight(e, 300)}></i>
+        {/* <i className='arrow right' onClick={e => scrollRight(e, 300)}></i> */}
       </section>
     </div>
   );

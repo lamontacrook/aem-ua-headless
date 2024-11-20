@@ -79,12 +79,11 @@ export function useGraphQL(path, params = {}) {
         })
         .catch((error) => {
           setErrors(error);
-          sessionStorage.removeItem('accessToken');
         });
     }
 
     makeRequest();
-  }, [path]);
+  }, [path, context.endpoint, context.serviceURL, params]);
 
 
   return { data, errorMessage };

@@ -83,8 +83,16 @@ const Teaser = ({ content }) => {
     if (event.detail) {
       const { name, value } = event.detail.patch;
       const section = event.target.querySelector('section');
+      console.log(name);
+      console.log(section);
+      console.log(event.detail);
       if (name === 'style' && section.classList.contains('teaser')) {
         section.setAttribute('class', `teaser ${value} iframe`);
+        event.stopPropagation();
+      } else if(name === 'asset' && section.classList.contains('teaser')) {
+        const img = section.querySelector(`picture > [data-aue-prop=${name}]`);
+        img.setAttribute('src', value);
+        img.removeAttribute('srcset');
         event.stopPropagation();
       }
     }
@@ -108,7 +116,7 @@ const Teaser = ({ content }) => {
   const editorProps = {
     'data-aue-resource': `urn:aemconnection:${content._path}/jcr:content/data/${content?._variation}`,
     'data-aue-type': 'reference',
-    'data-aue-label': content?.title,
+    'data-aue-label': content?.title || 'Teaser',
     'data-aue-model': content?._model?._path,
     'data-aue-behavior': 'component'
   };
@@ -120,7 +128,6 @@ const Teaser = ({ content }) => {
           {renderAsset(content)}
           <div className='content-block'>
             <span className='title' data-aue-prop='title' data-aue-type='text' data-aue-label='Title'>{content.title}</span>
-            <span className='seperator'></span>
             {content.preTitle && (
               <span className='preTitle' data-aue-prop='preTitle' data-aue-type='text' data-aue-label='Pre-Title'>{content.preTitle}</span>
             )}

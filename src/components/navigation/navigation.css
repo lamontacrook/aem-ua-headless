@@ -2,6 +2,7 @@ header nav {
   position: fixed;
   width: 100%;
   background: var(--main-color-opacity);
+  background-color: black;
   z-index: 2;
   transition: all .3s;
   border-bottom: 1px solid hsla(0,0%,100%,.2);
@@ -10,8 +11,6 @@ header nav {
 }
 
 header nav[aria-expanded='true'] {
-  /* grid-template: 'hamburger brand' 'sections sections' 'tools tools'; */
-  /* grid-template-columns:  100px 1fr 100px; */
   overflow-y: scroll;
   min-height: 100vh;
   background-color: var(--main-accent-color);
@@ -32,7 +31,7 @@ header nav .nav-brand p {
 header nav .nav-brand img {
   width: var(--nav-logo-width);
   height: auto;
-  padding-top: 8px;;
+  padding-top: var(--nav-logo-padding-top);
 }
 
 /* hamburger */
@@ -302,7 +301,6 @@ a:focus::after {
     top: -15px;
     left: 20px;
   }
-
 
   header nav .nav-sections > ul > li > ul > li {
     font-size: 18px;
