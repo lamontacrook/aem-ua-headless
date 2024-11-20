@@ -55,7 +55,7 @@ const Screen = () => {
                 if (Array.isArray(data.screen.body)) {
                   data.screen.body = data.screen.body[0];
                 }
-                setTitle(data.screen.body.screenTitle);
+                setTitle(data.screen.body?.screenTitle || 'Screen');
                 setData(data);
                 context.screenResponse = data;
               }
@@ -83,11 +83,11 @@ const Screen = () => {
       </Helmet>
       {data && data.screen &&
         <div className='screen' {...editorProps(data.screen.body, `${title} Screen`, '', 'reference')} >
-          {data.screen.body.header && config.configurationByPath &&
+          {data.screen.body?.header && config.configurationByPath &&
             <Header data={data} content={data.screen.body.header} config={config} className='screen' />
           }
           <div className='main-body' {...editorProps(data.screen.body, 'Screen Components', 'block', 'container', 'container')}>
-            {data.screen.body.block.map((item, i) => {
+            {data.screen.body && data.screen.body.block.map((item, i) => {
               if (item && item?._model?.title) {
                 return (
                   <div key={i} className='block'>

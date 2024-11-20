@@ -6,13 +6,50 @@ export const filterDefinition = () => {
     },
     {
       'id': 'image-list',
-      'components': [ 'article']
+      'components': ['article']
     }
   ];
 };
 
 export const modelDefinition = () => {
   return [
+    {
+      'id': 'aem-content-fragment',
+      'fields': [
+        {
+          'component': 'aem-content-fragment',
+          'name': 'picker',
+          'label': 'Content Fragment Picker',
+          'valueType': 'string',
+          'variationName': 'contentFragmentVariation',
+          'rootPath': '/content/dam/under-armour'
+        }
+      ]
+    },
+    {
+      'id': 'screen',
+      'fields': [
+        {
+          'component': 'text-input',
+          'name': 'screen-title',
+          'label': 'Screen Title',
+          'valueType': 'string'
+        },
+        {
+          'component': 'aem-content-fragment',
+          'name': 'header',
+          'label': 'Header',
+          'valueType': 'string'
+        },
+        {
+          'component': 'aem-content-fragment',
+          'name': 'blocks',
+          'label': 'Blocks',
+          'valueType': 'string',
+          'multi': true
+        }
+      ]
+    },
     {
       'id': 'teaser',
       'fields': [
@@ -147,16 +184,16 @@ export const componentDefinition = (context) => {
  * @param {*} filter 
  * @returns 
  */
-export const editorProps = (content, title, prop, type, behavior, filter='screen') => {
+export const editorProps = (content, title, prop, type, behavior, filter = 'screen') => {
   const props = {
     'data-aue-type': type,
     'data-aue-behavior': behavior,
     'data-aue-filter': filter,
     'data-aue-label': title,
   };
-  if(content._model && content._model._path) props['data-aue-model'] = content._model._path;
-  if(content._path) props['data-aue-resource'] = `urn:aemconnection:${content?._path}/jcr:content/data/${content?._variation}`;
-  if(behavior) props['data-aue-behavior'] = behavior;
-  if(prop) props['data-aue-prop'] = prop;
+  if (content?._model && content?._model?._path) props['data-aue-model'] = content?._model?._path;
+  if (content?._path) props['data-aue-resource'] = `urn:aemconnection:${content?._path}/jcr:content/data/${content?._variation}`;
+  if (behavior) props['data-aue-behavior'] = behavior;
+  if (prop) props['data-aue-prop'] = prop;
   return props;
 };
