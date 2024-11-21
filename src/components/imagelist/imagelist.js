@@ -131,7 +131,7 @@ const ArticleCard = ({ item }) => {
   const editorProps = {
     'data-aue-resource': `urn:aemconnection:${item._path}/jcr:content/data/master`,
     'data-aue-type': 'component',
-    'data-aue-label': `${item.headline.plaintext} Adventure`,
+    'data-aue-label': `${item.headline.plaintext}`,
     'data-aue-behavior': 'component',
     'data-aue-model': item.model
   };
