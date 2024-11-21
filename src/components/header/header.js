@@ -93,7 +93,7 @@ const Header = ({ content, config, className }) => {
           ></ModelManager>}
         {content.banner && !content.teaser && (
           <section className='banner'>
-            <div class='container'>
+            <div className='container'>
               <Image asset={content.banner} alt='Banner Image' config={config.configurationByPath.item} imageSizes={imageSizes} height={400}/>
             </div>
           </section>

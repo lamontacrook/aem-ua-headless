@@ -15,6 +15,10 @@ const LinkManager = ({ children, item, className, ue = true }) => {
 
   path = paths.join('/');
 
+  if(item.callToActionLink && item.callToActionLink._path) { 
+    path = item.callToActionLink._path.replace(`/${context.rootPath}`, '');
+  }
+
   const linkProps = {
     'data-aue-prop': 'callToActionLink',
     'data-aue-type': 'reference',
@@ -24,7 +28,7 @@ const LinkManager = ({ children, item, className, ue = true }) => {
 
   if (ue) {
     return (
-      <Link key={path} {...linkProps} className={className} name={item.title || item.name} to={path}>
+      <Link key={path} {...linkProps} className={className} name={item.title || item.name} to={path} reloadDocument>
         {children}
       </Link>
     );

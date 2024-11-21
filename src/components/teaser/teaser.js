@@ -120,7 +120,6 @@ const Teaser = ({ content }) => {
     'data-aue-model': content?._model?._path,
     'data-aue-behavior': 'component'
   };
-
   return (
     <div {...editorProps}>
       <section className={'teaser ' + style + (inFrame ? ' iframe' : '')} id={id} ref={divRef}>
