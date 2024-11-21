@@ -160,7 +160,7 @@ const AdventureCard = ({ item, style }) => {
   const editorProps = {
     'data-aue-resource': `urn:aemconnection:${item._path}/jcr:content/data/master`,
     'data-aue-type': 'component',
-    'data-aue-label': `${item.title} Adventure`,
+    'data-aue-label': `${item.title}`,
     'data-aue-behavior': 'component',
     'data-aue-model': item.model,
     'data-aue-prop': 'listItems'
