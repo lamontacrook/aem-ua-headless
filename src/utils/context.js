@@ -3,7 +3,7 @@ import BrokenImage from '../media/broken.jpg';
 
 const defaultEndpoint = '/content/_cq_graphql/aem-demo-assets/endpoint.json';
 const defaultProject = 'under-armour';
-const defaultServiceURL = 'https://author-p130802-e1275950.adobeaemcloud.com/';
+const defaultServiceURL = 'https://author-p124903-e1493196.adobeaemcloud.com/';
 const defaultPlaceholdersExtensionURL = 'https://1154643-geoipplaceholders.adobeio-static.net/api/v1/web/geoip-placeholders';
 
 export const AppContext = createContext({
